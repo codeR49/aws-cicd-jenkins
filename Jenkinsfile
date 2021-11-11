@@ -6,6 +6,11 @@ pipeline {
                   sh 'echo Building...'
               }
          }
+         stage('Lint App.py') {
+            steps {
+                sh 'tidy -q -e *.py'
+            }
+        }
          stage('Build Docker Image') {
               steps {
                   sh 'docker build -t hello-flask-app .'
