@@ -14,7 +14,7 @@ pipeline {
          }
          stage('Push Docker Image') {
               steps {
-                  withDockerRegistry([url: "", credentialsId: "dockerhub"]) {
+                  withDockerRegistry([url: "https://hub.docker.com/u/mydocker49", credentialsId: "dockerhub"]) {
                       sh "docker tag hello-flask-app mydocker49/hello-flask-app"
                       sh 'docker push mydocker49/hello-flask-app'
                   }
